@@ -32,7 +32,7 @@ jobs:
       - name: Download chat site artifact
         uses: dawidd6/action-download-artifact@v21
         with:
-          workflow: ${{ github.event.workflow_run.workflow_id }}
+          workflow: ${{ github.event.workflow_run.name }}
           run_id: ${{ github.event.workflow_run.id }}
           name: vue-next-chat-site
           path: ./chat-site
@@ -82,19 +82,19 @@ jobs:
         with:
           workflow: ${{ github.event.workflow_run.name }}
           run_id: ${{ github.event.workflow_run.id }}
-          name: pr
+          name: webc-site-pr-id
           path: ./pr-id
 
       - name: Set PR ID
         id: pr
-        run: echo "id=$(cat ./pr-id/pr-id.txt)" >> $GITHUB_OUTPUT
+        run: echo "id=$(cat ./pr-id/webc-site-pr-id.txt)" >> $GITHUB_OUTPUT
 
       - name: Download webc site artifact
         uses: dawidd6/action-download-artifact@v21
         with:
           workflow: ${{ github.event.workflow_run.name }}
           run_id: ${{ github.event.workflow_run.id }}
-          name: _site
+          name: webc-site
           path: ./webc-site
 
       - name: Deploy to Surge.sh
