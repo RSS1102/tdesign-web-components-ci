@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<p align="center">
+<p align="center">1
    <a href="https://www.npmjs.com/package/tdesign-web-components">
     <img src="https://img.shields.io/npm/l/tdesign-web-components.svg?sanitize=true" alt="License" />
   </a>
